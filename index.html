@@ -24,7 +24,8 @@
   --mint:#dff1ea;         /* soft section wash */
   --aqua:#0b7770;         /* accent: hover, focus, links */
   --sun:#ffc94d;          /* sponge yellow, primary on dark */
-  --line:#c9ddd6;
+  --line:#c9ddd6;         /* row dividers */
+  --field:#789a93;        /* form control borders (3:1 on white) */
   --on-dark:#eaf6f2;
   --on-dark-2:#b9d8d1;
   --radius:18px;
@@ -59,9 +60,18 @@ p{margin:0}
 .mark{flex:none;width:40px;height:40px}
 .brand b{display:block;font-weight:900;font-size:15px;line-height:1.05;text-transform:uppercase;letter-spacing:.01em}
 .brand small{display:block;font-size:12px;color:var(--ink-2);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
-.tel{flex:none;display:flex;align-items:center;gap:7px;min-height:44px;padding:0 4px;font-weight:800;font-size:16px;text-decoration:none;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tel{flex:none;display:flex;align-items:center;gap:7px;min-height:44px;padding:0 4px;font-weight:800;font-size:17px;text-decoration:none;font-variant-numeric:tabular-nums;white-space:nowrap}
 .tel svg{width:18px;height:18px;color:var(--aqua)}
 .tel:hover{color:var(--aqua)}
+@media (max-width:380px){
+  .top .wrap{padding-top:6px;padding-bottom:6px;gap:8px}
+  .mark{width:34px;height:34px}
+  .brand{gap:8px}
+  .brand b,.brand small{white-space:nowrap}
+  .brand b{font-size:14px}
+  .brand small{font-size:11px;letter-spacing:.02em}
+  .tel{font-size:15px;gap:5px}
+}
 
 /* ---------- Hero ---------- */
 .hero{position:relative;background:linear-gradient(180deg,var(--ground) 0%,var(--mint) 100%);padding:14px 0 70px}
@@ -110,37 +120,37 @@ section{position:relative}
 .steps{list-style:none;margin:0;padding:0;display:grid;gap:26px;counter-reset:s}
 .steps li{display:grid;grid-template-columns:52px 1fr;gap:14px;align-items:start;counter-increment:s}
 .steps li::before{content:counter(s);display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--sun);color:var(--ink);font-weight:900;font-size:22px}
-.steps h3{font-size:21px;font-weight:800;color:#fff;margin:4px 0 6px;line-height:1.2;letter-spacing:0}
+.steps h3{font-size:24px;font-weight:800;color:#fff;margin:4px 0 6px;line-height:1.2;letter-spacing:0}
 .steps p{color:var(--on-dark-2)}
 
 /* ---------- Care ---------- */
 .care{background:var(--mint);padding:60px 0 80px}
 .care-list{display:grid;gap:26px;margin:0}
-.care-list dt{font-weight:900;font-size:clamp(24px,6.4vw,34px);text-transform:uppercase;letter-spacing:-.02em;line-height:1}
+.care h2{margin-bottom:34px}
+.care-list dt{font-weight:800;font-size:clamp(22px,5.6vw,28px);text-transform:uppercase;letter-spacing:-.02em;line-height:1}
 .care-list dd{margin:8px 0 0;color:var(--ink-2);max-width:44ch}
 .ig{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:34px;padding:18px 20px;border-radius:var(--radius);
-  background:var(--ink);color:#fff;text-decoration:none;font-weight:800;font-size:17px;min-height:64px;transition:background .2s}
+  background:var(--ink);color:#fff;text-decoration:none;font-weight:800;font-size:19px;min-height:64px}
 .ig small{display:block;font-weight:600;font-size:15px;color:var(--on-dark-2)}
 .ig .arrow{background:rgba(255,255,255,.14);color:#fff}
-.ig:hover{background:var(--aqua)}
 .ig:hover .arrow{background:var(--sun);color:var(--ink)}
 
 /* ---------- Estimate form ---------- */
 .estimate{background:var(--ground);padding:60px 0 80px}
 .lede{color:var(--ink-2);margin:-8px 0 24px;max-width:44ch}
 form{display:grid;gap:18px;max-width:640px}
-label,.legend{display:block;font-weight:800;font-size:16px;margin-bottom:7px}
+label,.legend{display:block;font-weight:800;font-size:17px;margin-bottom:7px}
 .opt{font-weight:500;color:var(--ink-2)}
-input[type=text],input[type=tel],textarea{width:100%;min-height:54px;padding:13px 15px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:500 17px/1.4 var(--font);caret-color:var(--aqua);transition:border-color .15s,box-shadow .15s}
+input[type=text],input[type=tel],textarea{width:100%;min-height:54px;padding:13px 15px;border:2px solid var(--field);border-radius:12px;background:#fff;color:var(--ink);font:500 17px/1.4 var(--font);caret-color:var(--aqua);transition:border-color .15s,box-shadow .15s}
 textarea{min-height:104px;resize:vertical}
-input::placeholder,textarea::placeholder{color:#5f7d80}
+input::placeholder,textarea::placeholder{color:#557276}
 input[type=text]:hover,input[type=tel]:hover,textarea:hover{border-color:var(--aqua)}
 input[type=text]:focus,input[type=tel]:focus,textarea:focus{outline:none;border-color:var(--aqua);box-shadow:0 0 0 3px rgba(11,119,112,.22)}
 fieldset{border:0;margin:0;padding:0;min-width:0}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{position:relative}
 .chip input{position:absolute;opacity:0;width:1px;height:1px}
-.chip span{display:flex;align-items:center;min-height:46px;padding:0 16px;border:2px solid var(--line);border-radius:999px;background:#fff;font-weight:700;font-size:16px;cursor:pointer;transition:border-color .15s,background .15s,color .15s}
+.chip span{display:flex;align-items:center;min-height:46px;padding:0 16px;border:2px solid var(--field);border-radius:999px;background:#fff;font-weight:700;font-size:17px;cursor:pointer;transition:border-color .15s,background .15s,color .15s}
 .chip:hover span{border-color:var(--aqua)}
 .chip input:focus-visible+span{outline:3px solid var(--aqua);outline-offset:2px}
 .chip input:checked+span{background:var(--ink);border-color:var(--ink);color:#fff}
@@ -149,13 +159,14 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 .invalid .err{display:block}
 .invalid input,.invalid .chip span{border-color:#c4474b}
 form .btn-primary{width:100%}
-form .btn-primary:hover,form .btn-primary:focus-visible{outline:3px solid var(--aqua);outline-offset:3px}
+form .btn-primary:hover{background:var(--ink);border-color:var(--ink)}
+form .btn:hover,form .btn:focus-visible{outline:3px solid var(--aqua);outline-offset:3px}
 .fine{font-size:15px;color:var(--ink-2);margin-top:-6px}
 .sent{display:none;margin-top:6px;padding:18px;border-radius:14px;background:var(--mint)}
 .sent.show{display:block}
-.sent pre{white-space:pre-wrap;font:500 16px/1.5 var(--font);margin:10px 0 14px}
+.sent pre{white-space:pre-wrap;font:500 17px/1.5 var(--font);margin:10px 0 14px}
 .sent .row-btns{display:flex;flex-wrap:wrap;gap:10px}
-.sent .btn{min-height:48px;font-size:16px}
+.sent .btn{min-height:48px;font-size:17px}
 
 /* ---------- Footer ---------- */
 footer{position:relative;background:var(--ink);color:var(--on-dark);padding:56px 0 40px}
@@ -170,8 +181,9 @@ footer .area{margin-top:22px;color:var(--on-dark-2);font-size:15px}
 /* ---------- Desktop adaptation ---------- */
 @media (min-width:720px){
   .wrap{padding:0 32px}
-  .actions{display:flex;flex-wrap:wrap}
-  .services-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:56px;align-items:start}
+  .actions{max-width:380px}
+  .rows{display:grid;grid-template-columns:1fr 1fr;column-gap:56px}
+  .services-note{margin:-6px 0 30px}
   .steps{grid-template-columns:repeat(3,1fr);gap:32px}
   .steps li{grid-template-columns:1fr}
   .care-list{grid-template-columns:repeat(3,1fr);gap:36px}
@@ -179,14 +191,14 @@ footer .area{margin-top:22px;color:var(--on-dark-2);font-size:15px}
 @media (min-width:1024px){
   .top .wrap{min-height:84px}
   .brand b{font-size:17px}
-  .tel{font-size:18px}
   .hero{padding:34px 0 110px}
   .hero-grid{grid-template-columns:1.05fr 1fr;align-items:center;gap:56px}
   .pane{height:min(540px,62vh)}
   .services,.how,.care,.estimate{padding:96px 0 110px}
   .est-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:start}
+  .est-grid>div:first-child{position:sticky;top:40px}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn:active{transform:none}.hint{transition:none}}
 </style>
 </head>
 <body>
@@ -196,6 +208,7 @@ THESIS: The page is a window you clean yourself. Grime comes off under your fing
 OWN-WORLD: A window mid-clean. Dusty, smudged glass in a white-painted frame; a yellow kitchen sponge with a green scrub side; soap bubbles; the wavy wet edge a squeegee leaves. Fresh mint and sunny sky over deep teal; sponge yellow as the warm accent.
 STORY: Their slogan -> wipe the window -> what we clean (each row texts for an estimate) -> how an estimate works -> reliable / friendly / detail-oriented -> free estimate form -> footer.
 FIRST VIEWPORT (phone): wordmark + top-right number; the slogan headline; the promise; two buttons (text for an estimate, estimate form); the top of the dirty window with the sponge already wiping.
+SEED: none. No concept roll was run; unattended build, world chosen from the brief (runner-up: dust motes in a sunbeam).
 FORM: System sans, heavy uppercase display, sentence-case body. Light fresh ground with mint and deep-teal bands. Section edges are animated wet seams. Phone-first single column; desktop puts the window beside the headline.
 -->
 
@@ -220,7 +233,7 @@ FORM: System sans, heavy uppercase display, sentence-case body. Light fresh grou
         <a class="btn btn-ghost" href="#estimate">Fill out the estimate form</a>
       </div>
     </div>
-    <div class="pane" id="pane" aria-label="A dirty window. Drag across it to wipe it clean." role="img">
+    <div class="pane" id="pane" aria-hidden="true">
       <canvas id="sky"></canvas>
       <canvas id="grime"></canvas>
       <div class="frame"></div>
@@ -232,12 +245,18 @@ FORM: System sans, heavy uppercase display, sentence-case body. Light fresh grou
 
 <section class="services" id="services">
   <svg class="seam" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true"><path fill="#f4f8f6"/></svg>
-  <div class="wrap services-grid">
+  <div class="wrap">
     <div>
       <h2>What we clean</h2>
-      <p class="services-note">Homes, apartments, offices and commercial spaces. Tap one to text us about it.</p>
+      <p class="services-note">Tap one to ask us about it.</p>
     </div>
-    <ul class="rows" id="rows"></ul>
+    <ul class="rows" id="rows">
+      <li><a class="row" data-service="Deep cleaning" href="sms:+12013063891?&amp;body=Hi%20A%26G%21%20I%27d%20like%20a%20free%20estimate%20for%20deep%20cleaning.%0AMy%20town%3A%20"><span>Deep cleaning</span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+      <li><a class="row" data-service="Regular house cleaning" href="sms:+12013063891?&amp;body=Hi%20A%26G%21%20I%27d%20like%20a%20free%20estimate%20for%20regular%20house%20cleaning.%0AMy%20town%3A%20"><span>Regular house cleaning</span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+      <li><a class="row" data-service="Move-out cleaning" href="sms:+12013063891?&amp;body=Hi%20A%26G%21%20I%27d%20like%20a%20free%20estimate%20for%20move-out%20cleaning.%0AMy%20town%3A%20"><span>Move-out cleaning</span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+      <li><a class="row" data-service="Office cleaning" href="sms:+12013063891?&amp;body=Hi%20A%26G%21%20I%27d%20like%20a%20free%20estimate%20for%20office%20cleaning.%0AMy%20town%3A%20"><span>Office cleaning</span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+      <li><a class="row" data-service="Commercial cleaning" href="sms:+12013063891?&amp;body=Hi%20A%26G%21%20I%27d%20like%20a%20free%20estimate%20for%20commercial%20cleaning.%0AMy%20town%3A%20"><span>Commercial cleaning</span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+    </ul>
   </div>
 </section>
 
@@ -247,7 +266,7 @@ FORM: System sans, heavy uppercase display, sentence-case body. Light fresh grou
     <h2>How it works</h2>
     <ol class="steps">
       <li><div><h3>Text us what needs cleaning</h3><p>The rooms, the size, the day you'd like. Day or night, send it when it's on your mind.</p></div></li>
-      <li><div><h3>Get your free estimate</h3><p>We'll text you back with a price before anything is booked.</p></div></li>
+      <li><div><h3>Get your free estimate</h3><p>We'll get back to you with your free estimate.</p></div></li>
       <li><div><h3>Come home to it clean</h3><p>We show up when we said we would and leave it ready to enjoy.</p></div></li>
     </ol>
   </div>
@@ -262,7 +281,7 @@ FORM: System sans, heavy uppercase display, sentence-case body. Light fresh grou
       <div><dt>Friendly</dt><dd>You're letting us into your home or your workplace. We treat it, and you, with respect.</dd></div>
       <div><dt>Detail-oriented</dt><dd>Baseboards, light switches, behind the faucet. The spots you'd notice if we skipped them.</dd></div>
     </dl>
-    <a class="ig" href="https://www.instagram.com/powerscleaningservices/" rel="noopener"><span>Click to see more of our work.<small>@powerscleaningservices on Instagram</small></span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    <a class="ig" href="https://www.instagram.com/powerscleaningservices/" rel="noopener"><span>See our work on Instagram.<small>@powerscleaningservices</small></span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
   </div>
 </section>
 
@@ -271,23 +290,29 @@ FORM: System sans, heavy uppercase display, sentence-case body. Light fresh grou
   <div class="wrap est-grid">
     <div>
       <h2>Free estimate</h2>
-      <p class="lede">Answer a few questions and your phone writes the text for you. We'll reply with a price.</p>
+      <p class="lede">Answer a few questions and your phone writes the text for you.</p>
     </div>
     <form id="estForm" novalidate>
       <div class="field" data-req>
         <label for="fName">Your name</label>
-        <input type="text" id="fName" name="name" autocomplete="name">
-        <p class="err">Please add your name so we know who's texting.</p>
+        <input type="text" id="fName" name="name" autocomplete="name" aria-describedby="eName">
+        <p class="err" id="eName">Please add your name so we know who's texting.</p>
       </div>
       <fieldset class="field" data-req>
         <legend class="legend">What needs cleaning?</legend>
-        <div class="chips" id="chips"></div>
-        <p class="err">Pick the cleaning you're after.</p>
+        <div class="chips" id="chips">
+          <label class="chip"><input type="radio" name="service" value="Deep cleaning" aria-describedby="eService"><span>Deep cleaning</span></label>
+          <label class="chip"><input type="radio" name="service" value="Regular house cleaning" aria-describedby="eService"><span>Regular house cleaning</span></label>
+          <label class="chip"><input type="radio" name="service" value="Move-out cleaning" aria-describedby="eService"><span>Move-out cleaning</span></label>
+          <label class="chip"><input type="radio" name="service" value="Office cleaning" aria-describedby="eService"><span>Office cleaning</span></label>
+          <label class="chip"><input type="radio" name="service" value="Commercial cleaning" aria-describedby="eService"><span>Commercial cleaning</span></label>
+        </div>
+        <p class="err" id="eService">Pick the cleaning you're after.</p>
       </fieldset>
       <div class="field" data-req>
         <label for="fTown">Town</label>
-        <input type="text" id="fTown" name="town" autocomplete="address-level2" placeholder="e.g. Hackensack">
-        <p class="err">Please add your town so we know we can get to you.</p>
+        <input type="text" id="fTown" name="town" autocomplete="address-level2" placeholder="Your town" aria-describedby="eTown">
+        <p class="err" id="eTown">Please add your town so we know we can get to you.</p>
       </div>
       <div class="field">
         <label for="fSize">Size of the place <span class="opt">(optional)</span></label>
@@ -301,8 +326,8 @@ FORM: System sans, heavy uppercase display, sentence-case body. Light fresh grou
         <label for="fNotes">Anything else? <span class="opt">(optional)</span></label>
         <textarea id="fNotes" name="notes" placeholder="Pets, parking, rooms that need extra love…"></textarea>
       </div>
-      <button class="btn btn-primary" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1.1-4.6A8 8 0 1 1 21 12z"/></svg>Text this to A&amp;G</button>
-      <p class="fine">Opens your texting app with the message written out. Nothing is sent until you press send.</p>
+      <button class="btn btn-primary" type="submit" aria-describedby="fineNote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1.1-4.6A8 8 0 1 1 21 12z"/></svg>Text this to A&amp;G</button>
+      <p class="fine" id="fineNote">Opens your texting app with the message written out. Nothing is sent until you press send.</p>
       <div class="sent" id="sent" aria-live="polite">
         <strong>Your message is ready.</strong> If your texting app didn't open, copy it and text it to 201-306-3891.
         <pre id="sentMsg"></pre>
@@ -325,27 +350,25 @@ FORM: System sans, heavy uppercase display, sentence-case body. Light fresh grou
       <li><a href="tel:+12013063891"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 6 6L15 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Call or text 201-306-3891</a></li>
       <li><a href="https://www.instagram.com/powerscleaningservices/" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>@powerscleaningservices</a></li>
     </ul>
-    <p class="area">Residential &amp; commercial cleaning across New Jersey.</p>
+    <p class="area">Residential &amp; commercial cleaning in New Jersey.</p>
   </div>
 </footer>
 
 <script>
 /* ---------- Content: services and contact ---------- */
 var PHONE = '+12013063891';
-var SERVICES = ['Deep cleaning','Regular house cleaning','Move-out cleaning','Office cleaning','Commercial cleaning'];
 function smsHref(body){ return 'sms:' + PHONE + '?&body=' + encodeURIComponent(body); }
 
-(function rows(){
-  var ul = document.getElementById('rows'), chips = document.getElementById('chips');
-  var arrow = '<span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>';
-  SERVICES.forEach(function(s, i){
-    var li = document.createElement('li');
-    li.innerHTML = '<a class="row" href="' + smsHref("Hi A&G! I'd like a free estimate for " + s.toLowerCase() + ".\nMy town: ") + '"><span>' + s + '</span>' + arrow + '</a>';
-    ul.appendChild(li);
-    var c = document.createElement('label');
-    c.className = 'chip';
-    c.innerHTML = '<input type="radio" name="service" value="' + s + '"><span>' + s + '</span>';
-    chips.appendChild(c);
+// On a computer an sms: link does nothing, so a service row jumps to the form with that service ticked.
+(function rowsOnDesktop(){
+  if (!matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  document.querySelectorAll('.row').forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      var r = document.querySelector('input[name=service][value="' + a.dataset.service + '"]');
+      if (r){ r.checked = true; r.closest('.field').classList.remove('invalid'); }
+      document.getElementById('estimate').scrollIntoView({ behavior: 'smooth' });
+    });
   });
 })();
 
@@ -353,8 +376,9 @@ function smsHref(body){ return 'sms:' + PHONE + '?&body=' + encodeURIComponent(b
 (function form(){
   var f = document.getElementById('estForm'), sent = document.getElementById('sent');
   function val(n){ var el = f.elements[n]; return el ? (el.value || '').trim() : ''; }
-  f.addEventListener('input', function(e){ var fld = e.target.closest('.field'); if (fld) fld.classList.remove('invalid'); });
-  f.addEventListener('change', function(e){ var fld = e.target.closest('.field'); if (fld) fld.classList.remove('invalid'); });
+  function clear(e){ var fld = e.target.closest('.field'); if (fld){ fld.classList.remove('invalid'); fld.querySelectorAll('input').forEach(function(i){ i.removeAttribute('aria-invalid'); }); } }
+  f.addEventListener('input', clear);
+  f.addEventListener('change', clear);
   f.addEventListener('submit', function(e){
     e.preventDefault();
     var service = (f.querySelector('input[name=service]:checked') || {}).value || '';
@@ -363,6 +387,7 @@ function smsHref(body){ return 'sms:' + PHONE + '?&body=' + encodeURIComponent(b
     f.querySelectorAll('[data-req]').forEach(function(fld, i){
       var ok = !!checks[i][1];
       fld.classList.toggle('invalid', !ok);
+      fld.querySelectorAll('input').forEach(function(inp){ if (ok) inp.removeAttribute('aria-invalid'); else inp.setAttribute('aria-invalid', 'true'); });
       if (!ok && !firstBad) firstBad = fld;
     });
     if (firstBad){ var t = firstBad.querySelector('input'); if (t) t.focus(); return; }
@@ -398,8 +423,9 @@ var REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
 /* ---------- The window: wipe the grime off ---------- */
 (function windowPane(){
   // Tunables
-  var REGROW = 0.0032;          // how fast grime creeps back per frame (Above All used 0.0045)
-  var BRUSH = 0.11;             // wipe radius as a share of the pane's short side
+  var REGROW = 0.0008;          // even film creeping back per frame (slow; the specks below do most of it)
+  var REGROW_SPECKS = 3;        // grime specks and smudges landing back on clean glass per frame
+  var BRUSH_PHONE = 0.15, BRUSH_DESK = 0.11; // wipe radius as a share of the pane's short side
   var IDLE_RESUME = 3500;       // ms after the last touch before the sponge wipes on its own
   var AUTO_SPEED = 0.55;        // auto-wipe path speed
   var BUBBLES_MAX = 46;         // soap bubbles alive at once (halved on phones)
@@ -410,7 +436,7 @@ var REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var sctx = sky.getContext('2d'), gctx = grime.getContext('2d'), fctx = fx.getContext('2d');
   var mask = document.createElement('canvas'), mctx = mask.getContext('2d');
   var dirt = document.createElement('canvas'), dctx = dirt.getContext('2d');
-  var W = 0, H = 0, DPR = 1, phone = innerWidth < 720;
+  var W = 0, H = 0, DPR = 1, phone = innerWidth < 720, BRUSH = phone ? BRUSH_PHONE : BRUSH_DESK;
   var bubbles = [], sponge = makeSponge();
   var ptr = { active: false, cx: 0, cy: 0, last: -1e9 };
   var pos = { x: 0, y: 0, px: null, py: null, angle: 0, vx: 0, vy: 0 };
@@ -437,18 +463,27 @@ var REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
     g.addColorStop(0, '#2f93d6'); g.addColorStop(.5, '#6fbde8'); g.addColorStop(1, '#bfe4f1');
     c.fillStyle = g; c.fillRect(0, 0, w, h);
     var sun = c.createRadialGradient(w * .82, h * .16, 0, w * .82, h * .16, h * .7);
-    sun.addColorStop(0, 'rgba(255,248,214,.9)'); sun.addColorStop(.08, 'rgba(255,240,190,.45)'); sun.addColorStop(1, 'rgba(255,240,190,0)');
+    sun.addColorStop(0, 'rgba(255,248,214,.35)'); sun.addColorStop(.08, 'rgba(255,240,190,.18)'); sun.addColorStop(1, 'rgba(255,240,190,0)');
     c.fillStyle = sun; c.fillRect(0, 0, w, h);
-    c.save(); c.filter = 'blur(' + Math.round(6 * DPR) + 'px)';
-    [[.18, .2, .2], [.42, .12, .14], [.62, .3, .18], [.12, .42, .12]].forEach(function(cl){
-      c.fillStyle = 'rgba(255,255,255,.85)';
-      for (var k = 0; k < 6; k++){ c.beginPath(); c.ellipse(w * (cl[0] + (k - 2.5) * cl[2] * .16), h * cl[1] + Math.sin(k * 1.7) * h * .025, w * cl[2] * .2, h * cl[2] * .32, 0, 0, Math.PI * 2); c.fill(); }
+    // clouds from soft radial puffs (canvas filter blur is ignored by some WebKit builds)
+    [[.2, .2, .2], [.5, .1, .14], [.66, .32, .18], [.1, .44, .12]].forEach(function(cl){
+      for (var k = 0; k < 7; k++){
+        var bx = w * (cl[0] + (k - 3) * cl[2] * .14), by = h * cl[1] + Math.sin(k * 1.7) * h * .03 - (k % 3 === 1 ? h * .03 : 0), br = w * cl[2] * (.16 + (k % 2) * .06);
+        var cg = c.createRadialGradient(bx, by - br * .2, 0, bx, by, br);
+        cg.addColorStop(0, 'rgba(255,255,255,.98)'); cg.addColorStop(.6, 'rgba(250,252,255,.85)'); cg.addColorStop(1, 'rgba(255,255,255,0)');
+        c.fillStyle = cg; c.fillRect(bx - br, by - br, br * 2, br * 2);
+      }
     });
-    c.restore();
-    // roofline
-    c.fillStyle = '#7a8f99';
-    c.beginPath(); c.moveTo(w * .08, h * .78); c.lineTo(w * .2, h * .62); c.lineTo(w * .36, h * .78); c.closePath(); c.fill();
-    c.fillStyle = '#e9ecea'; c.fillRect(w * .11, h * .76, w * .22, h * .3);
+    // the neighbour's house: siding, roof, chimney, two windows and a door
+    var hx = w * .06, hw = w * .36, hy = h * .62, hh = h * .4;
+    c.fillStyle = '#eef0ec'; c.fillRect(hx, hy, hw, hh);
+    c.fillStyle = 'rgba(15,59,64,.06)'; for (var sy = hy + 6 * DPR; sy < hy + hh; sy += 7 * DPR) c.fillRect(hx, sy, hw, 1.2 * DPR);
+    c.fillStyle = '#4a5a62'; c.fillRect(hx + hw * .72, hy - h * .15, hw * .08, h * .1);
+    c.fillStyle = '#5d6f78'; c.beginPath(); c.moveTo(hx - w * .025, hy + 1); c.lineTo(hx + hw / 2, hy - h * .17); c.lineTo(hx + hw + w * .025, hy + 1); c.closePath(); c.fill();
+    [[.16, .2], [.6, .2]].forEach(function(wd){ var wx = hx + hw * wd[0], wy = hy + hh * wd[1], ww = hw * .24, wh = hh * .26;
+      c.fillStyle = '#fbfdfc'; c.fillRect(wx - 2 * DPR, wy - 2 * DPR, ww + 4 * DPR, wh + 4 * DPR);
+      c.fillStyle = '#9fc6d6'; c.fillRect(wx, wy, ww, wh); c.fillStyle = '#fbfdfc'; c.fillRect(wx + ww / 2 - DPR, wy, 2 * DPR, wh); });
+    c.fillStyle = '#0f3b40'; c.fillRect(hx + hw * .42, hy + hh * .52, hw * .16, hh * .48);
     // organic treeline
     function trees(base, amp, col, seed){
       c.fillStyle = col; c.beginPath(); c.moveTo(0, h);
@@ -459,6 +494,7 @@ var REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
       c.lineTo(w, h); c.closePath(); c.fill();
     }
     trees(.8, .07, '#6fa77a', 1.3);
+    trees(.82, .05, 'rgba(255,255,220,.12)', 2.2);
     trees(.9, .06, '#4c8a5e', 4.1);
     c.fillStyle = '#3f7a52'; c.fillRect(0, h * .95, w, h * .05);
   }
@@ -509,7 +545,7 @@ var REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
   function wipeAt(x, y, strong){
     var r = Math.min(W, H) * BRUSH * MASK_SCALE, mx = x * MASK_SCALE, my = y * MASK_SCALE;
     var g = mctx.createRadialGradient(mx, my, 0, mx, my, r);
-    g.addColorStop(0, 'rgba(0,0,0,' + (strong ? 1 : .8) + ')'); g.addColorStop(.7, 'rgba(0,0,0,' + (strong ? .7 : .5) + ')'); g.addColorStop(1, 'rgba(0,0,0,0)');
+    g.addColorStop(0, 'rgba(0,0,0,1)'); g.addColorStop(.85, 'rgba(0,0,0,1)'); g.addColorStop(1, 'rgba(0,0,0,0)');
     mctx.fillStyle = g; mctx.beginPath(); mctx.arc(mx, my, r, 0, Math.PI * 2); mctx.fill();
   }
   function wipeLine(x0, y0, x1, y1){
@@ -596,16 +632,27 @@ var REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
     } else { pos.px = null; pos.vx *= .8; pos.vy *= .8; }
 
     // grime creeps back
-    if (!REDUCED){ mctx.globalCompositeOperation = 'destination-out'; mctx.fillStyle = 'rgba(0,0,0,' + REGROW + ')'; mctx.fillRect(0, 0, mask.width, mask.height); mctx.globalCompositeOperation = 'source-over'; }
+    if (!REDUCED){
+      mctx.globalCompositeOperation = 'destination-out';
+      mctx.fillStyle = 'rgba(0,0,0,' + REGROW + ')'; mctx.fillRect(0, 0, mask.width, mask.height);
+      for (var k = 0; k < REGROW_SPECKS; k++){
+        var sx = Math.random() * mask.width, sy = Math.random() * mask.height, sr = rnd(2, 9);
+        var sg = mctx.createRadialGradient(sx, sy, 0, sx, sy, sr);
+        sg.addColorStop(0, 'rgba(0,0,0,.5)'); sg.addColorStop(1, 'rgba(0,0,0,0)');
+        mctx.fillStyle = sg; mctx.fillRect(sx - sr, sy - sr, sr * 2, sr * 2);
+      }
+      mctx.globalCompositeOperation = 'source-over';
+    }
     renderGrime();
 
     // bubbles + sponge
     fctx.clearRect(0, 0, fx.width, fx.height);
+    var pr = ptr.active ? pane.getBoundingClientRect() : null;
     for (var i = bubbles.length - 1; i >= 0; i--){
       var b = bubbles[i]; b.life++;
       b.vx += Math.sin(t * 2.3 + b.ph) * .02; b.vy -= .006;
       b.vx *= .985; b.vy *= .985; b.x += b.vx; b.y += b.vy;
-      if (ptr.active){ var rr = pane.getBoundingClientRect(), dx = b.x - (ptr.cx - rr.left), dy = b.y - (ptr.cy - rr.top), dd = Math.hypot(dx, dy); if (dd < 50 && dd > 0){ b.vx += dx / dd * .35; b.vy += dy / dd * .35; } }
+      if (pr){ var dx = b.x - (ptr.cx - pr.left), dy = b.y - (ptr.cy - pr.top), dd = Math.hypot(dx, dy); if (dd < 50 && dd > 0){ b.vx += dx / dd * .35; b.vy += dy / dd * .35; } }
       var a = Math.min(1, b.life / 8) * (b.life > b.max - 12 ? Math.max(0, (b.max - b.life) / 12) : 1);
       if (b.life >= b.max || b.y < -20){ bubbles.splice(i, 1); continue; }
       drawBubble(b, a);
@@ -619,7 +666,7 @@ var REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
   }
 
   size();
-  addEventListener('resize', function(){ phone = innerWidth < 720; size(); });
+  addEventListener('resize', function(){ phone = innerWidth < 720; BRUSH = phone ? BRUSH_PHONE : BRUSH_DESK; size(); });
   if (REDUCED){ frame(performance.now()); return; }
   new IntersectionObserver(function(es){ visible = es[0].isIntersecting; LOOP.set(job, visible); }).observe(pane);
 })();
