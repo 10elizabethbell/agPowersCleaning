@@ -1,0 +1,652 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A&amp;G Power's Cleaning Services · New Jersey</title>
+<meta name="description" content="Deep cleaning, regular house cleaning, move-out cleaning and office cleaning in New Jersey. Text 201-306-3891 for a free estimate.">
+<meta name="theme-color" content="#0f3b40">
+<meta property="og:type" content="website">
+<meta property="og:title" content="A&amp;G Power's Cleaning Services">
+<meta property="og:description" content="A clean space is a happy space. Homes and offices across New Jersey. Text for a free estimate.">
+<meta property="og:url" content="https://10elizabethbell.github.io/agPowersCleaning/">
+<meta property="og:image" content="https://10elizabethbell.github.io/agPowersCleaning/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>
+/* ---------- Tokens ---------- */
+:root{
+  --ink:#0f3b40;          /* deep teal: text, dark sections */
+  --ink-2:#2c5a5e;        /* secondary text on light */
+  --ground:#f4f8f6;       /* page ground: fresh, not white */
+  --mint:#dff1ea;         /* soft section wash */
+  --aqua:#0b7770;         /* accent: hover, focus, links */
+  --sun:#ffc94d;          /* sponge yellow, primary on dark */
+  --line:#c9ddd6;
+  --on-dark:#eaf6f2;
+  --on-dark-2:#b9d8d1;
+  --radius:18px;
+  --font:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;overscroll-behavior-y:none;scroll-behavior:smooth}
+body{margin:0;background:var(--ground);color:var(--ink);font:400 17px/1.55 var(--font);overflow-x:hidden}
+::selection{background:var(--sun);color:var(--ink)}
+a{color:inherit}
+img{max-width:100%}
+.wrap{width:100%;max-width:1160px;margin:0 auto;padding:0 16px}
+h1,h2,h3{margin:0;line-height:1.02;letter-spacing:-.02em;text-wrap:balance}
+h2{font-size:clamp(30px,8vw,52px);font-weight:900;text-transform:uppercase;margin-bottom:22px}
+p{margin:0}
+:focus-visible{outline:3px solid var(--aqua);outline-offset:3px;border-radius:6px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- Buttons ---------- */
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;min-height:58px;padding:0 24px;border-radius:999px;font:800 17px/1.1 var(--font);text-decoration:none;border:2px solid var(--ink);cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .15s}
+.btn:active{transform:scale(.98)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-primary{background:var(--ink);color:#fff}
+.btn-primary:hover{background:var(--aqua);border-color:var(--aqua)}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn-ghost:hover{border-color:var(--aqua);color:var(--aqua)}
+
+/* ---------- Header ---------- */
+.top{position:relative;z-index:3}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:68px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0}
+.mark{flex:none;width:40px;height:40px}
+.brand b{display:block;font-weight:900;font-size:15px;line-height:1.05;text-transform:uppercase;letter-spacing:.01em}
+.brand small{display:block;font-size:12px;color:var(--ink-2);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.tel{flex:none;display:flex;align-items:center;gap:7px;min-height:44px;padding:0 4px;font-weight:800;font-size:16px;text-decoration:none;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tel svg{width:18px;height:18px;color:var(--aqua)}
+.tel:hover{color:var(--aqua)}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;background:linear-gradient(180deg,var(--ground) 0%,var(--mint) 100%);padding:14px 0 70px}
+.hero-grid{display:grid;gap:26px}
+.hero h1{font-size:clamp(40px,11.4vw,88px);font-weight:900;text-transform:uppercase;letter-spacing:-.035em;line-height:.94}
+.hero h1 em{font-style:normal;color:var(--aqua)}
+.promise{margin-top:16px;font-size:clamp(17px,4.6vw,20px);color:var(--ink-2);max-width:34ch}
+.actions{display:grid;gap:12px;margin-top:22px}
+
+/* The window you wipe */
+.pane{position:relative;height:clamp(260px,72vw,340px);border-radius:var(--radius);overflow:hidden;
+  touch-action:none;user-select:none;-webkit-user-select:none;cursor:none;
+  box-shadow:0 18px 40px -18px rgba(15,59,64,.45),0 2px 6px rgba(15,59,64,.12);background:#cfe6ee}
+.pane canvas{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}
+/* white painted window frame + cross mullions */
+.pane .frame{position:absolute;inset:0;pointer-events:none;border:12px solid #fbfdfc;border-radius:var(--radius);
+  box-shadow:inset 0 0 0 1px rgba(15,59,64,.08),inset 0 6px 14px rgba(15,59,64,.18)}
+.pane .frame::before,.pane .frame::after{content:"";position:absolute;background:#fbfdfc;box-shadow:0 3px 8px rgba(15,59,64,.18)}
+.pane .frame::before{left:50%;top:0;bottom:0;width:10px;transform:translateX(-50%)}
+.pane .frame::after{top:50%;left:0;right:0;height:10px;transform:translateY(-50%)}
+.pane #fx{z-index:2}
+.hint{position:absolute;z-index:3;left:50%;bottom:22px;transform:translateX(-50%);pointer-events:none;
+  font-size:15px;font-weight:700;color:#fff;background:rgba(15,59,64,.62);padding:6px 12px;border-radius:8px;white-space:nowrap;transition:opacity .6s}
+.pane.touched .hint{opacity:0}
+
+/* ---------- Squeegee seams: the wet edge between sections ---------- */
+.seam{position:absolute;left:0;right:0;top:-38px;height:40px;width:100%;display:block;pointer-events:none}
+section{position:relative}
+
+/* ---------- Services ---------- */
+.services{background:var(--ground);padding:56px 0 76px}
+.rows{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.row{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px;padding:12px 2px;
+  border-bottom:1px solid var(--line);text-decoration:none;font-weight:800;font-size:clamp(20px,5.6vw,28px);text-transform:uppercase;letter-spacing:-.01em}
+.row:hover,.row:focus-visible{outline:none;background:none;box-shadow:none}
+.arrow{flex:none;display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--mint);color:var(--ink);transition:background .2s,color .2s}
+.arrow svg{width:20px;height:20px}
+.row:hover .arrow,.row:focus-visible .arrow{background:var(--aqua);color:#fff}
+.row:focus-visible .arrow{outline:3px solid var(--aqua);outline-offset:3px}
+.services-note{margin-top:18px;color:var(--ink-2);max-width:46ch}
+
+/* ---------- How it works (dark) ---------- */
+.how{background:var(--ink);color:var(--on-dark);padding:60px 0 80px}
+.how h2{color:#fff}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:26px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:52px 1fr;gap:14px;align-items:start;counter-increment:s}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--sun);color:var(--ink);font-weight:900;font-size:22px}
+.steps h3{font-size:21px;font-weight:800;color:#fff;margin:4px 0 6px;line-height:1.2;letter-spacing:0}
+.steps p{color:var(--on-dark-2)}
+
+/* ---------- Care ---------- */
+.care{background:var(--mint);padding:60px 0 80px}
+.care-list{display:grid;gap:26px;margin:0}
+.care-list dt{font-weight:900;font-size:clamp(24px,6.4vw,34px);text-transform:uppercase;letter-spacing:-.02em;line-height:1}
+.care-list dd{margin:8px 0 0;color:var(--ink-2);max-width:44ch}
+.ig{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:34px;padding:18px 20px;border-radius:var(--radius);
+  background:var(--ink);color:#fff;text-decoration:none;font-weight:800;font-size:17px;min-height:64px;transition:background .2s}
+.ig small{display:block;font-weight:600;font-size:15px;color:var(--on-dark-2)}
+.ig .arrow{background:rgba(255,255,255,.14);color:#fff}
+.ig:hover{background:var(--aqua)}
+.ig:hover .arrow{background:var(--sun);color:var(--ink)}
+
+/* ---------- Estimate form ---------- */
+.estimate{background:var(--ground);padding:60px 0 80px}
+.lede{color:var(--ink-2);margin:-8px 0 24px;max-width:44ch}
+form{display:grid;gap:18px;max-width:640px}
+label,.legend{display:block;font-weight:800;font-size:16px;margin-bottom:7px}
+.opt{font-weight:500;color:var(--ink-2)}
+input[type=text],input[type=tel],textarea{width:100%;min-height:54px;padding:13px 15px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:500 17px/1.4 var(--font);caret-color:var(--aqua);transition:border-color .15s,box-shadow .15s}
+textarea{min-height:104px;resize:vertical}
+input::placeholder,textarea::placeholder{color:#5f7d80}
+input[type=text]:hover,input[type=tel]:hover,textarea:hover{border-color:var(--aqua)}
+input[type=text]:focus,input[type=tel]:focus,textarea:focus{outline:none;border-color:var(--aqua);box-shadow:0 0 0 3px rgba(11,119,112,.22)}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;width:1px;height:1px}
+.chip span{display:flex;align-items:center;min-height:46px;padding:0 16px;border:2px solid var(--line);border-radius:999px;background:#fff;font-weight:700;font-size:16px;cursor:pointer;transition:border-color .15s,background .15s,color .15s}
+.chip:hover span{border-color:var(--aqua)}
+.chip input:focus-visible+span{outline:3px solid var(--aqua);outline-offset:2px}
+.chip input:checked+span{background:var(--ink);border-color:var(--ink);color:#fff}
+.chip input:checked:hover+span,.chip:hover input:checked+span{border-color:var(--aqua)}
+.err{display:none;color:#a3262a;font-weight:700;font-size:15px;margin-top:6px}
+.invalid .err{display:block}
+.invalid input,.invalid .chip span{border-color:#c4474b}
+form .btn-primary{width:100%}
+form .btn-primary:hover,form .btn-primary:focus-visible{outline:3px solid var(--aqua);outline-offset:3px}
+.fine{font-size:15px;color:var(--ink-2);margin-top:-6px}
+.sent{display:none;margin-top:6px;padding:18px;border-radius:14px;background:var(--mint)}
+.sent.show{display:block}
+.sent pre{white-space:pre-wrap;font:500 16px/1.5 var(--font);margin:10px 0 14px}
+.sent .row-btns{display:flex;flex-wrap:wrap;gap:10px}
+.sent .btn{min-height:48px;font-size:16px}
+
+/* ---------- Footer ---------- */
+footer{position:relative;background:var(--ink);color:var(--on-dark);padding:56px 0 40px}
+footer .name{font-weight:900;font-size:clamp(26px,7vw,40px);text-transform:uppercase;line-height:1;letter-spacing:-.02em;color:#fff}
+footer .slogan{margin-top:10px;color:var(--on-dark-2)}
+footer ul{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:4px}
+footer ul a{display:inline-flex;align-items:center;gap:10px;min-height:44px;text-decoration:none;font-weight:700;font-size:17px}
+footer ul a:hover{color:var(--sun)}
+footer ul svg{width:20px;height:20px;color:var(--sun)}
+footer .area{margin-top:22px;color:var(--on-dark-2);font-size:15px}
+
+/* ---------- Desktop adaptation ---------- */
+@media (min-width:720px){
+  .wrap{padding:0 32px}
+  .actions{grid-template-columns:auto auto;justify-content:start}
+  .services-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:56px;align-items:start}
+  .steps{grid-template-columns:repeat(3,1fr);gap:32px}
+  .steps li{grid-template-columns:1fr}
+  .care-list{grid-template-columns:repeat(3,1fr);gap:36px}
+}
+@media (min-width:1024px){
+  .top .wrap{min-height:84px}
+  .brand b{font-size:17px}
+  .tel{font-size:18px}
+  .hero{padding:34px 0 110px}
+  .hero-grid{grid-template-columns:1.05fr 1fr;align-items:center;gap:56px}
+  .pane{height:min(540px,62vh)}
+  .services,.how,.care,.estimate{padding:96px 0 110px}
+  .est-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:start}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<!--
+DIRECTION CONTRACT
+THESIS: The page is a window you clean yourself. Grime comes off under your finger and New Jersey sunshine shows through: A&G's own "A clean space is a happy space", made touchable.
+OWN-WORLD: A window mid-clean. Dusty, smudged glass in a white-painted frame; a yellow kitchen sponge with a green scrub side; soap bubbles; the wavy wet edge a squeegee leaves. Fresh mint and sunny sky over deep teal; sponge yellow as the warm accent.
+STORY: Their slogan -> wipe the window -> what we clean (each row texts for an estimate) -> how an estimate works -> reliable / friendly / detail-oriented -> free estimate form -> footer.
+FIRST VIEWPORT (phone): wordmark + top-right number; the slogan headline; the promise; two buttons (text for an estimate, estimate form); the top of the dirty window with the sponge already wiping.
+FORM: System sans, heavy uppercase display, sentence-case body. Light fresh ground with mint and deep-teal bands. Section edges are animated wet seams. Phone-first single column; desktop puts the window beside the headline.
+-->
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="A&amp;G Power's Cleaning Services, back to top">
+      <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#0f3b40"/><text x="20" y="25.5" text-anchor="middle" font-family="system-ui,-apple-system,Segoe UI,Arial,sans-serif" font-size="14" font-weight="900" fill="#ffc94d">A&amp;G</text></svg>
+      <span><b>A&amp;G Power's</b><small>Cleaning Services</small></span>
+    </a>
+    <a class="tel" href="tel:+12013063891"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 6 6L15 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>201-306-3891</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>A clean space is a <em>happy</em> space.</h1>
+      <p class="promise">We clean your home or office like we'd want ours cleaned: on time, friendly, and down to the corners nobody checks.</p>
+      <div class="actions">
+        <a class="btn btn-primary" id="heroText" href="sms:+12013063891?&amp;body=Hi%20A%26G!%20I%27d%20like%20a%20free%20estimate%20for%20a%20cleaning."><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1.1-4.6A8 8 0 1 1 21 12z"/></svg>Text us for a free estimate</a>
+        <a class="btn btn-ghost" href="#estimate">Fill out the estimate form</a>
+      </div>
+    </div>
+    <div class="pane" id="pane" aria-label="A dirty window. Drag across it to wipe it clean." role="img">
+      <canvas id="sky"></canvas>
+      <canvas id="grime"></canvas>
+      <div class="frame"></div>
+      <canvas id="fx"></canvas>
+      <span class="hint">Drag to wipe the window</span>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <svg class="seam" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true"><path fill="#f4f8f6"/></svg>
+  <div class="wrap services-grid">
+    <div>
+      <h2>What we clean</h2>
+      <p class="services-note">Homes, apartments, offices and commercial spaces. Tap one to text us about it.</p>
+    </div>
+    <ul class="rows" id="rows"></ul>
+  </div>
+</section>
+
+<section class="how">
+  <svg class="seam" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true"><path fill="#0f3b40"/></svg>
+  <div class="wrap">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li><div><h3>Text us what needs cleaning</h3><p>The rooms, the size, the day you'd like. Day or night, send it when it's on your mind.</p></div></li>
+      <li><div><h3>Get your free estimate</h3><p>We'll text you back with a price before anything is booked.</p></div></li>
+      <li><div><h3>Come home to it clean</h3><p>We show up when we said we would and leave it ready to enjoy.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="care">
+  <svg class="seam" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true"><path fill="#dff1ea"/></svg>
+  <div class="wrap">
+    <h2>Our promise</h2>
+    <dl class="care-list">
+      <div><dt>Reliable</dt><dd>When we give you a day and a time, that's when we're at your door.</dd></div>
+      <div><dt>Friendly</dt><dd>You're letting us into your home or your workplace. We treat it, and you, with respect.</dd></div>
+      <div><dt>Detail-oriented</dt><dd>Baseboards, light switches, behind the faucet. The spots you'd notice if we skipped them.</dd></div>
+    </dl>
+    <a class="ig" href="https://www.instagram.com/powerscleaningservices/" rel="noopener"><span>Click to see more of our work.<small>@powerscleaningservices on Instagram</small></span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+  </div>
+</section>
+
+<section class="estimate" id="estimate">
+  <svg class="seam" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true"><path fill="#f4f8f6"/></svg>
+  <div class="wrap est-grid">
+    <div>
+      <h2>Free estimate</h2>
+      <p class="lede">Answer a few questions and your phone writes the text for you. We'll reply with a price.</p>
+    </div>
+    <form id="estForm" novalidate>
+      <div class="field" data-req>
+        <label for="fName">Your name</label>
+        <input type="text" id="fName" name="name" autocomplete="name">
+        <p class="err">Please add your name so we know who's texting.</p>
+      </div>
+      <fieldset class="field" data-req>
+        <legend class="legend">What needs cleaning?</legend>
+        <div class="chips" id="chips"></div>
+        <p class="err">Pick the cleaning you're after.</p>
+      </fieldset>
+      <div class="field" data-req>
+        <label for="fTown">Town</label>
+        <input type="text" id="fTown" name="town" autocomplete="address-level2" placeholder="e.g. Hackensack">
+        <p class="err">Please add your town so we know we can get to you.</p>
+      </div>
+      <div class="field">
+        <label for="fSize">Size of the place <span class="opt">(optional)</span></label>
+        <input type="text" id="fSize" name="size" placeholder="e.g. 3 bed, 2 bath">
+      </div>
+      <div class="field">
+        <label for="fWhen">When works for you? <span class="opt">(optional)</span></label>
+        <input type="text" id="fWhen" name="when" placeholder="e.g. Saturday morning">
+      </div>
+      <div class="field">
+        <label for="fNotes">Anything else? <span class="opt">(optional)</span></label>
+        <textarea id="fNotes" name="notes" placeholder="Pets, parking, rooms that need extra love…"></textarea>
+      </div>
+      <button class="btn btn-primary" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1.1-4.6A8 8 0 1 1 21 12z"/></svg>Text this to A&amp;G</button>
+      <p class="fine">Opens your texting app with the message written out. Nothing is sent until you press send.</p>
+      <div class="sent" id="sent" aria-live="polite">
+        <strong>Your message is ready.</strong> If your texting app didn't open, copy it and text it to 201-306-3891.
+        <pre id="sentMsg"></pre>
+        <div class="row-btns">
+          <button class="btn btn-ghost" type="button" id="copyBtn">Copy message</button>
+          <a class="btn btn-ghost" id="sentSms" href="#">Open texting app</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <svg class="seam" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true"><path fill="#0f3b40"/></svg>
+  <div class="wrap">
+    <p class="name">A&amp;G Power's Cleaning Services</p>
+    <p class="slogan">A clean space is a happy space.</p>
+    <ul>
+      <li><a href="tel:+12013063891"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 6 6L15 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Call or text 201-306-3891</a></li>
+      <li><a href="https://www.instagram.com/powerscleaningservices/" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>@powerscleaningservices</a></li>
+    </ul>
+    <p class="area">Residential &amp; commercial cleaning across New Jersey.</p>
+  </div>
+</footer>
+
+<script>
+/* ---------- Content: services and contact ---------- */
+var PHONE = '+12013063891';
+var SERVICES = ['Deep cleaning','Regular house cleaning','Move-out cleaning','Office cleaning','Commercial cleaning'];
+function smsHref(body){ return 'sms:' + PHONE + '?&body=' + encodeURIComponent(body); }
+
+(function rows(){
+  var ul = document.getElementById('rows'), chips = document.getElementById('chips');
+  var arrow = '<span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>';
+  SERVICES.forEach(function(s, i){
+    var li = document.createElement('li');
+    li.innerHTML = '<a class="row" href="' + smsHref("Hi A&G! I'd like a free estimate for " + s.toLowerCase() + ".\nMy town: ") + '"><span>' + s + '</span>' + arrow + '</a>';
+    ul.appendChild(li);
+    var c = document.createElement('label');
+    c.className = 'chip';
+    c.innerHTML = '<input type="radio" name="service" value="' + s + '"><span>' + s + '</span>';
+    chips.appendChild(c);
+  });
+})();
+
+/* ---------- Estimate form -> pre-written text ---------- */
+(function form(){
+  var f = document.getElementById('estForm'), sent = document.getElementById('sent');
+  function val(n){ var el = f.elements[n]; return el ? (el.value || '').trim() : ''; }
+  f.addEventListener('input', function(e){ var fld = e.target.closest('.field'); if (fld) fld.classList.remove('invalid'); });
+  f.addEventListener('change', function(e){ var fld = e.target.closest('.field'); if (fld) fld.classList.remove('invalid'); });
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    var service = (f.querySelector('input[name=service]:checked') || {}).value || '';
+    var checks = [['name', val('name')], ['service', service], ['town', val('town')]];
+    var firstBad = null;
+    f.querySelectorAll('[data-req]').forEach(function(fld, i){
+      var ok = !!checks[i][1];
+      fld.classList.toggle('invalid', !ok);
+      if (!ok && !firstBad) firstBad = fld;
+    });
+    if (firstBad){ var t = firstBad.querySelector('input'); if (t) t.focus(); return; }
+    var lines = ["Hi A&G! I'd like a free estimate.", 'Name: ' + val('name'), 'Cleaning: ' + service, 'Town: ' + val('town')];
+    if (val('size')) lines.push('Size: ' + val('size'));
+    if (val('when')) lines.push('When: ' + val('when'));
+    if (val('notes')) lines.push('Notes: ' + val('notes'));
+    var msg = lines.join('\n'), href = smsHref(msg);
+    document.getElementById('sentMsg').textContent = msg;
+    document.getElementById('sentSms').href = href;
+    sent.classList.add('show');
+    window.location.href = href;
+  });
+  document.getElementById('copyBtn').addEventListener('click', function(){
+    var b = this, msg = document.getElementById('sentMsg').textContent;
+    function done(){ b.textContent = 'Copied'; setTimeout(function(){ b.textContent = 'Copy message'; }, 2000); }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(msg).then(done, fallback); else fallback();
+    function fallback(){ var r = document.createRange(); r.selectNodeContents(document.getElementById('sentMsg')); var s = getSelection(); s.removeAllRanges(); s.addRange(r); try { document.execCommand('copy'); done(); } catch (e) {} }
+  });
+})();
+
+/* ---------- Shared animation loop ---------- */
+var LOOP = (function(){
+  var jobs = [], running = false;
+  function tick(t){ var any = false; for (var i = 0; i < jobs.length; i++) if (jobs[i].on) { jobs[i].fn(t); any = true; } if (any) requestAnimationFrame(tick); else running = false; }
+  return {
+    add: function(fn){ var j = { fn: fn, on: false }; jobs.push(j); return j; },
+    set: function(j, on){ j.on = on; if (on && !running){ running = true; requestAnimationFrame(tick); } }
+  };
+})();
+var REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- The window: wipe the grime off ---------- */
+(function windowPane(){
+  // Tunables
+  var REGROW = 0.0032;          // how fast grime creeps back per frame (Above All used 0.0045)
+  var BRUSH = 0.11;             // wipe radius as a share of the pane's short side
+  var IDLE_RESUME = 3500;       // ms after the last touch before the sponge wipes on its own
+  var AUTO_SPEED = 0.55;        // auto-wipe path speed
+  var BUBBLES_MAX = 46;         // soap bubbles alive at once (halved on phones)
+  var MASK_SCALE = 0.5;         // clean-mask resolution vs the pane
+
+  var pane = document.getElementById('pane');
+  var sky = document.getElementById('sky'), grime = document.getElementById('grime'), fx = document.getElementById('fx');
+  var sctx = sky.getContext('2d'), gctx = grime.getContext('2d'), fctx = fx.getContext('2d');
+  var mask = document.createElement('canvas'), mctx = mask.getContext('2d');
+  var dirt = document.createElement('canvas'), dctx = dirt.getContext('2d');
+  var W = 0, H = 0, DPR = 1, phone = innerWidth < 720;
+  var bubbles = [], sponge = makeSponge();
+  var ptr = { active: false, cx: 0, cy: 0, last: -1e9 };
+  var pos = { x: 0, y: 0, px: null, py: null, angle: 0, vx: 0, vy: 0 };
+
+  function rnd(a, b){ return a + Math.random() * (b - a); }
+
+  function size(){
+    var r = pane.getBoundingClientRect(), w = Math.round(r.width), h = Math.round(r.height);
+    if (w === W && h === H) return;            // phones fire resize when the address bar moves; keep the wipe
+    W = w; H = h; DPR = Math.min(window.devicePixelRatio || 1, phone ? 2 : 1.5);
+    [sky, grime, fx].forEach(function(c){ c.width = Math.round(W * DPR); c.height = Math.round(H * DPR); });
+    mask.width = Math.round(W * MASK_SCALE); mask.height = Math.round(H * MASK_SCALE);
+    dirt.width = grime.width; dirt.height = grime.height;
+    drawSky(); drawDirt();
+    if (!pos.px){ pos.x = W * .3; pos.y = H * .55; }
+    if (REDUCED) preClean();
+    renderGrime();
+  }
+
+  // The view outside: morning sky, soft clouds, a treeline and a neighbour's roof.
+  function drawSky(){
+    var c = sctx, w = sky.width, h = sky.height;
+    var g = c.createLinearGradient(0, 0, 0, h);
+    g.addColorStop(0, '#5fb3e0'); g.addColorStop(.55, '#a9daf0'); g.addColorStop(1, '#e8f6f4');
+    c.fillStyle = g; c.fillRect(0, 0, w, h);
+    var sun = c.createRadialGradient(w * .82, h * .16, 0, w * .82, h * .16, h * .7);
+    sun.addColorStop(0, 'rgba(255,248,214,.95)'); sun.addColorStop(.12, 'rgba(255,240,190,.75)'); sun.addColorStop(1, 'rgba(255,240,190,0)');
+    c.fillStyle = sun; c.fillRect(0, 0, w, h);
+    c.save(); c.filter = 'blur(' + Math.round(6 * DPR) + 'px)';
+    [[.18, .2, .2], [.42, .12, .14], [.62, .3, .18], [.12, .42, .12]].forEach(function(cl){
+      c.fillStyle = 'rgba(255,255,255,.85)';
+      for (var k = 0; k < 6; k++){ c.beginPath(); c.ellipse(w * (cl[0] + (k - 2.5) * cl[2] * .16), h * cl[1] + Math.sin(k * 1.7) * h * .025, w * cl[2] * .2, h * cl[2] * .32, 0, 0, Math.PI * 2); c.fill(); }
+    });
+    c.restore();
+    // roofline
+    c.fillStyle = '#7a8f99';
+    c.beginPath(); c.moveTo(w * .08, h * .78); c.lineTo(w * .2, h * .62); c.lineTo(w * .36, h * .78); c.closePath(); c.fill();
+    c.fillStyle = '#e9ecea'; c.fillRect(w * .11, h * .76, w * .22, h * .3);
+    // organic treeline
+    function trees(base, amp, col, seed){
+      c.fillStyle = col; c.beginPath(); c.moveTo(0, h);
+      for (var x = 0; x <= w; x += w / 60){
+        var n = Math.sin(x / w * 9 + seed) * .5 + Math.sin(x / w * 23 + seed * 2) * .3 + Math.sin(x / w * 51 + seed * 3) * .2;
+        c.lineTo(x, h * base - n * h * amp - Math.abs(Math.sin(x / w * 37 + seed)) * h * amp * .6);
+      }
+      c.lineTo(w, h); c.closePath(); c.fill();
+    }
+    trees(.8, .07, '#6fa77a', 1.3);
+    trees(.9, .06, '#4c8a5e', 4.1);
+    c.fillStyle = '#3f7a52'; c.fillRect(0, h * .95, w, h * .05);
+  }
+
+  // Grime on the glass: a dusty film, smudges, water spots, specks and finger streaks.
+  function drawDirt(){
+    var c = dctx, w = dirt.width, h = dirt.height, s = Math.min(w, h);
+    c.clearRect(0, 0, w, h);
+    c.fillStyle = 'rgba(128,116,92,.62)'; c.fillRect(0, 0, w, h);
+    for (var i = 0; i < 28; i++){
+      var x = rnd(0, w), y = rnd(0, h), r = rnd(s * .08, s * .3);
+      var g = c.createRadialGradient(x, y, 0, x, y, r);
+      var dark = Math.random() < .55;
+      g.addColorStop(0, dark ? 'rgba(92,80,58,.38)' : 'rgba(176,166,140,.3)'); g.addColorStop(1, 'rgba(0,0,0,0)');
+      c.fillStyle = g; c.fillRect(x - r, y - r, r * 2, r * 2);
+    }
+    // heavier grime gathers toward the bottom of the pane
+    var b = c.createLinearGradient(0, h * .55, 0, h);
+    b.addColorStop(0, 'rgba(96,84,60,0)'); b.addColorStop(1, 'rgba(96,84,60,.35)');
+    c.fillStyle = b; c.fillRect(0, 0, w, h);
+    // dried water spots
+    for (i = 0; i < 70; i++){
+      var wx = rnd(0, w), wy = rnd(0, h), wr = rnd(s * .006, s * .022);
+      c.beginPath(); c.arc(wx, wy, wr, 0, Math.PI * 2);
+      c.fillStyle = 'rgba(205,198,178,.32)'; c.fill();
+      c.lineWidth = Math.max(1, wr * .3); c.strokeStyle = 'rgba(90,80,60,.28)'; c.stroke();
+    }
+    // dust specks
+    for (i = 0; i < 900; i++){
+      c.fillStyle = Math.random() < .5 ? 'rgba(70,60,44,.45)' : 'rgba(215,205,180,.4)';
+      var d = rnd(.6, 2.2) * DPR; c.fillRect(rnd(0, w), rnd(0, h), d, d);
+    }
+    // drip streaks running down
+    for (i = 0; i < 9; i++){
+      var sx = rnd(0, w), sy = rnd(0, h * .5), len = rnd(h * .2, h * .5), sw = rnd(2, 5) * DPR;
+      var sg = c.createLinearGradient(0, sy, 0, sy + len);
+      sg.addColorStop(0, 'rgba(84,72,50,0)'); sg.addColorStop(.3, 'rgba(84,72,50,.3)'); sg.addColorStop(1, 'rgba(84,72,50,0)');
+      c.strokeStyle = sg; c.lineWidth = sw; c.lineCap = 'round';
+      c.beginPath(); c.moveTo(sx, sy);
+      c.bezierCurveTo(sx + rnd(-6, 6) * DPR, sy + len * .3, sx + rnd(-8, 8) * DPR, sy + len * .7, sx + rnd(-4, 4) * DPR, sy + len); c.stroke();
+    }
+  }
+
+  function preClean(){ // reduced motion: one clean swath, drawn once
+    for (var t = 0; t < 6.3; t += .05) wipeAt(W * (.5 + .32 * Math.sin(t)), H * (.5 + .22 * Math.sin(t * 2)), true);
+  }
+
+  function wipeAt(x, y, strong){
+    var r = Math.min(W, H) * BRUSH * MASK_SCALE, mx = x * MASK_SCALE, my = y * MASK_SCALE;
+    var g = mctx.createRadialGradient(mx, my, 0, mx, my, r);
+    g.addColorStop(0, 'rgba(0,0,0,' + (strong ? 1 : .55) + ')'); g.addColorStop(.7, 'rgba(0,0,0,' + (strong ? .7 : .3) + ')'); g.addColorStop(1, 'rgba(0,0,0,0)');
+    mctx.fillStyle = g; mctx.beginPath(); mctx.arc(mx, my, r, 0, Math.PI * 2); mctx.fill();
+  }
+  function wipeLine(x0, y0, x1, y1){
+    var d = Math.hypot(x1 - x0, y1 - y0), step = Math.max(2, Math.min(W, H) * BRUSH * .35), n = Math.max(1, Math.ceil(d / step));
+    for (var i = 1; i <= n; i++) wipeAt(x0 + (x1 - x0) * i / n, y0 + (y1 - y0) * i / n);
+  }
+
+  function renderGrime(){
+    gctx.globalCompositeOperation = 'source-over';
+    gctx.clearRect(0, 0, grime.width, grime.height);
+    gctx.drawImage(dirt, 0, 0);
+    gctx.globalCompositeOperation = 'destination-out';
+    gctx.drawImage(mask, 0, 0, grime.width, grime.height);
+    gctx.globalCompositeOperation = 'source-over';
+  }
+
+  // A kitchen sponge: yellow body with pores, green scrub side. Pre-rendered once.
+  function makeSponge(){
+    var c = document.createElement('canvas'), w = 120, h = 84; c.width = w; c.height = h;
+    var x = c.getContext('2d');
+    function rr(px, py, pw, ph, r){ x.beginPath(); x.moveTo(px + r, py); x.arcTo(px + pw, py, px + pw, py + ph, r); x.arcTo(px + pw, py + ph, px, py + ph, r); x.arcTo(px, py + ph, px, py, r); x.arcTo(px, py, px + pw, py, r); x.closePath(); }
+    x.shadowColor = 'rgba(15,59,64,.35)'; x.shadowBlur = 10; x.shadowOffsetY = 5;
+    rr(8, 8, 104, 66, 14); var body = x.createLinearGradient(0, 8, 0, 74); body.addColorStop(0, '#ffd866'); body.addColorStop(1, '#efb534'); x.fillStyle = body; x.fill();
+    x.shadowColor = 'transparent';
+    x.save(); rr(8, 8, 104, 66, 14); x.clip();
+    for (var i = 0; i < 70; i++){ x.beginPath(); x.arc(10 + Math.random() * 100, 26 + Math.random() * 46, .8 + Math.random() * 2.2, 0, Math.PI * 2); x.fillStyle = 'rgba(176,118,20,' + (.35 + Math.random() * .3) + ')'; x.fill(); }
+    var scrub = x.createLinearGradient(0, 8, 0, 26); scrub.addColorStop(0, '#3a9a62'); scrub.addColorStop(1, '#25774a');
+    x.fillStyle = scrub; x.fillRect(0, 0, w, 24);
+    for (i = 0; i < 90; i++){ x.fillStyle = 'rgba(20,70,40,.45)'; x.fillRect(10 + Math.random() * 100, 9 + Math.random() * 14, 1.5, 1.5); }
+    x.restore();
+    return c;
+  }
+
+  function bubble(x, y, vx, vy){
+    if (bubbles.length >= (phone ? BUBBLES_MAX / 2 : BUBBLES_MAX)) return;
+    bubbles.push({ x: x, y: y, r: rnd(3, phone ? 9 : 12), vx: vx * .15 + rnd(-.4, .4), vy: vy * .15 - rnd(.3, .9), life: 0, max: rnd(60, 160), ph: rnd(0, 6.28) });
+  }
+  function drawBubble(b, a){
+    var c = fctx, x = b.x * DPR, y = b.y * DPR, r = b.r * DPR;
+    var g = c.createRadialGradient(x - r * .35, y - r * .4, r * .1, x, y, r);
+    g.addColorStop(0, 'rgba(255,255,255,' + .85 * a + ')');
+    g.addColorStop(.45, 'rgba(225,244,250,' + .35 * a + ')');
+    g.addColorStop(.85, 'rgba(160,215,235,' + .45 * a + ')');
+    g.addColorStop(1, 'rgba(120,190,215,' + .7 * a + ')');
+    c.fillStyle = g; c.beginPath(); c.arc(x, y, r, 0, Math.PI * 2); c.fill();
+  }
+
+  // Pointer: mouse and finger, any direction. The rect is read every frame (the page can scroll under a finger).
+  function down(e){ ptr.active = true; ptr.cx = e.clientX; ptr.cy = e.clientY; ptr.last = performance.now(); pos.px = null; pane.classList.add('touched'); if (e.pointerType !== 'mouse') e.preventDefault(); try { pane.setPointerCapture(e.pointerId); } catch (_) {} wake(); }
+  function move(e){ if (e.pointerType === 'mouse' || ptr.active){ ptr.cx = e.clientX; ptr.cy = e.clientY; ptr.last = performance.now(); if (e.pointerType === 'mouse'){ ptr.active = true; pane.classList.add('touched'); } wake(); } }
+  function up(e){ if (e.pointerType !== 'mouse') ptr.active = false; }
+  pane.addEventListener('pointerdown', down);
+  pane.addEventListener('pointermove', move);
+  pane.addEventListener('pointerup', up);
+  pane.addEventListener('pointercancel', up);
+  pane.addEventListener('pointerleave', function(e){ if (e.pointerType === 'mouse') ptr.active = false; });
+
+  var t0 = performance.now(), visible = true, job = LOOP.add(frame);
+  function wake(){ if (visible) LOOP.set(job, true); }
+
+  function frame(now){
+    var t = (now - t0) / 1000;
+    var user = ptr.active || now - ptr.last < 160;
+    var auto = !REDUCED && now - ptr.last > IDLE_RESUME;
+    var tx, ty;
+    if (user){
+      var r = pane.getBoundingClientRect();
+      tx = ptr.cx - r.left; ty = ptr.cy - r.top;
+    } else if (auto){
+      var at = t * AUTO_SPEED, sc = Math.min(W, H) * .05;
+      tx = W * (.5 + .34 * Math.sin(at * .9)) + Math.cos(at * 7) * sc;
+      ty = H * (.5 + .28 * Math.sin(at * 1.6 + .8)) + Math.sin(at * 7) * sc;
+    }
+    var moving = tx !== undefined;
+    if (moving){
+      var ease = user ? .55 : .18;
+      var nx = pos.x + (tx - pos.x) * ease, ny = pos.y + (ty - pos.y) * ease;
+      pos.vx = nx - pos.x; pos.vy = ny - pos.y;
+      if (pos.px !== null) wipeLine(pos.px, pos.py, nx, ny); else wipeAt(nx, ny);
+      pos.x = nx; pos.y = ny; pos.px = nx; pos.py = ny;
+      var sp = Math.hypot(pos.vx, pos.vy);
+      if (sp > 1.2 && Math.random() < Math.min(.9, sp * .12)) bubble(pos.x + rnd(-20, 20), pos.y + rnd(-10, 14), pos.vx, pos.vy);
+      pos.angle += ((Math.max(-.5, Math.min(.5, pos.vx * .03))) - pos.angle) * .15;
+    } else { pos.px = null; pos.vx *= .8; pos.vy *= .8; }
+
+    // grime creeps back
+    if (!REDUCED){ mctx.globalCompositeOperation = 'destination-out'; mctx.fillStyle = 'rgba(0,0,0,' + REGROW + ')'; mctx.fillRect(0, 0, mask.width, mask.height); mctx.globalCompositeOperation = 'source-over'; }
+    renderGrime();
+
+    // bubbles + sponge
+    fctx.clearRect(0, 0, fx.width, fx.height);
+    for (var i = bubbles.length - 1; i >= 0; i--){
+      var b = bubbles[i]; b.life++;
+      b.vx += Math.sin(t * 2.3 + b.ph) * .02; b.vy -= .006;
+      b.vx *= .985; b.vy *= .985; b.x += b.vx; b.y += b.vy;
+      if (ptr.active){ var rr = pane.getBoundingClientRect(), dx = b.x - (ptr.cx - rr.left), dy = b.y - (ptr.cy - rr.top), dd = Math.hypot(dx, dy); if (dd < 50 && dd > 0){ b.vx += dx / dd * .35; b.vy += dy / dd * .35; } }
+      var a = Math.min(1, b.life / 8) * (b.life > b.max - 12 ? Math.max(0, (b.max - b.life) / 12) : 1);
+      if (b.life >= b.max || b.y < -20){ bubbles.splice(i, 1); continue; }
+      drawBubble(b, a);
+    }
+    if (moving || !REDUCED){
+      var s = phone ? .5 : .62, sw = sponge.width * s * DPR, sh = sponge.height * s * DPR, sq = Math.min(.12, Math.hypot(pos.vx, pos.vy) * .01);
+      fctx.save(); fctx.translate(pos.x * DPR, pos.y * DPR); fctx.rotate(pos.angle); fctx.scale(1 + sq, 1 - sq);
+      fctx.drawImage(sponge, -sw / 2, -sh / 2, sw, sh); fctx.restore();
+    }
+    if (REDUCED && !user && !bubbles.length) LOOP.set(job, false);
+  }
+
+  size();
+  addEventListener('resize', function(){ phone = innerWidth < 720; size(); });
+  if (REDUCED){ frame(performance.now()); return; }
+  new IntersectionObserver(function(es){ visible = es[0].isIntersecting; LOOP.set(job, visible); }).observe(pane);
+})();
+
+/* ---------- Squeegee seams: wet wavy edges between sections ---------- */
+(function seams(){
+  var SPEED = 1.1, AMP = 9, POINTS = 40;
+  var paths = [].slice.call(document.querySelectorAll('.seam path'));
+  var vis = paths.map(function(){ return false; });
+  function d(t, k){
+    var s = 'M0 40 L0 ', y;
+    for (var i = 0; i <= POINTS; i++){
+      var x = i / POINTS * 1200;
+      y = 22 + Math.sin(x / 1200 * 6.3 + t * SPEED * .7 + k) * AMP * .6 + Math.sin(x / 1200 * 15 - t * SPEED * 1.3 + k * 2) * AMP * .3 + Math.sin(x / 1200 * 31 + t * SPEED * 2.1) * AMP * .12;
+      s += (i ? ' L' : '') + x.toFixed(0) + ' ' + y.toFixed(1);
+    }
+    return s + ' L1200 40 Z';
+  }
+  paths.forEach(function(p, k){ p.setAttribute('d', d(0, k)); });
+  if (REDUCED) return;
+  var t0 = performance.now();
+  var job = LOOP.add(function(now){ var t = (now - t0) / 1000; paths.forEach(function(p, k){ if (vis[k]) p.setAttribute('d', d(t, k)); }); });
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ vis[paths.indexOf(e.target.firstElementChild)] = e.isIntersecting; });
+    LOOP.set(job, vis.some(Boolean));
+  });
+  paths.forEach(function(p){ io.observe(p.parentNode); });
+})();
+</script>
+</body>
+</html>
